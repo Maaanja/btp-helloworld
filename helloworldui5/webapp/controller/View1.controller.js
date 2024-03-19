@@ -7,7 +7,6 @@ sap.ui.define([
      */
     function (Controller,MessageBox) {
         "use strict";
-
         return Controller.extend("sap.btp.helloworldui5.controller.View1", {
             onInit: function () {
 

@@ -5,7 +5,7 @@ service:
   buildToolVersion: "MBTJ17N18"
   stages:
     Release:
-      cfCredentialsId: "helloworldgit"
+      cfCredentialsId: "cfcredentials"
 stages:
   Build:
     source: helloworldui5

@@ -1,0 +1,34 @@
+---
+general:
+  buildTool: "mta"
+service:
+  buildToolVersion: "MBTJ17N18"
+  stages:
+    Release:
+      cfCredentialsId: "helloworldgit"
+stages:
+  Build:
+    source: helloworldui5
+    npmExecuteLint: false
+  Additional Unit Tests:
+    npmExecuteScripts: false
+  Malware Scan:
+    malwareExecuteScan: false
+  Acceptance:
+    npmExecuteEndToEndTests: false
+    cloudFoundryDeploy: false
+  Compliance:
+    sonarExecuteScan: false
+  Release:
+    tmsExport: false
+    tmsUpload: false
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfOrg: "473338bbtrial"
+    cfSpace: "qa"
+    deployType: "standard"
+    cloudFoundryDeploy: true
+steps:
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
+  cloudFoundryDeploy:
+    mtaDeployParameters: "-f --version-rule ALL"
